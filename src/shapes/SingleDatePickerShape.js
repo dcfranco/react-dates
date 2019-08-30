@@ -65,6 +65,9 @@ export default {
   transitionDuration: nonNegativeInteger,
   horizontalMonthPadding: nonNegativeInteger,
 
+  // to format input
+  normalize: PropTypes.func,
+
   // navigation related props
   navPrev: PropTypes.node,
   navNext: PropTypes.node,

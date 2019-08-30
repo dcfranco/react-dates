@@ -74,6 +74,8 @@ const propTypes = forbidExtraProps({
   customArrowIcon: PropTypes.node,
   customCloseIcon: PropTypes.node,
 
+  normalize: PropTypes.func,
+
   // accessibility
   isFocused: PropTypes.bool,
 
@@ -129,6 +131,8 @@ const defaultProps = {
   customInputIcon: null,
   customArrowIcon: null,
   customCloseIcon: null,
+
+  normalize: (value) => value,
 
   // accessibility
   isFocused: false,
@@ -302,6 +306,7 @@ export default class DateRangePickerInputController extends React.PureComponent 
       small,
       regular,
       verticalSpacing,
+      normalize,
     } = this.props;
 
     const startDateString = this.getDateString(startDate);
@@ -347,6 +352,7 @@ export default class DateRangePickerInputController extends React.PureComponent 
         small={small}
         regular={regular}
         verticalSpacing={verticalSpacing}
+        normalize={normalize}
       >
         {children}
       </DateRangePickerInput>

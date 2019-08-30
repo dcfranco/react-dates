@@ -105,6 +105,8 @@ const defaultProps = {
 
   onClose() {},
 
+  normalize: (value) => value,
+
   // day presentation and interaction related props
   renderCalendarDay: undefined,
   renderDayContents: null,
@@ -581,6 +583,7 @@ class DateRangePicker extends React.PureComponent {
       small,
       regular,
       styles,
+      normalize,
     } = this.props;
 
     const { isDateRangePickerInputFocused } = this.state;
@@ -632,6 +635,7 @@ class DateRangePicker extends React.PureComponent {
         small={small}
         regular={regular}
         verticalSpacing={verticalSpacing}
+        normalize={normalize}
       >
         {this.maybeRenderDayPickerWithPortal()}
       </DateRangePickerInputController>

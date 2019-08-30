@@ -91,6 +91,9 @@ export default {
   isOutsideRange: PropTypes.func,
   isDayHighlighted: PropTypes.func,
 
+  // to format input
+  normalize: PropTypes.func,
+
   // internationalization props
   displayFormat: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   monthFormat: PropTypes.string,

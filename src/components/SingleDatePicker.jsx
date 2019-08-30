@@ -95,6 +95,7 @@ const defaultProps = {
   onPrevMonthClick() {},
   onNextMonthClick() {},
   onClose() {},
+  normalize: (value) => value,
 
   // month presentation and interaction related props
   renderMonthText: null,
@@ -427,6 +428,7 @@ class SingleDatePicker extends React.PureComponent {
       horizontalMonthPadding,
       small,
       theme: { reactDates },
+      normalize,
     } = this.props;
     const { dayPickerContainerStyles, isDayPickerFocused, showKeyboardShortcuts } = this.state;
 
@@ -551,6 +553,7 @@ class SingleDatePicker extends React.PureComponent {
       keepOpenOnDateSelect,
       styles,
       isOutsideRange,
+      normalize,
     } = this.props;
 
     const { isInputFocused } = this.state;
@@ -593,6 +596,7 @@ class SingleDatePicker extends React.PureComponent {
         verticalSpacing={verticalSpacing}
         reopenPickerOnClearDate={reopenPickerOnClearDate}
         keepOpenOnDateSelect={keepOpenOnDateSelect}
+        normalize={normalize}
       >
         {this.maybeRenderDayPickerWithPortal()}
       </SingleDatePickerInputController>

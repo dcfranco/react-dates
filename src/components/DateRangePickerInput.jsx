@@ -71,6 +71,8 @@ const propTypes = forbidExtraProps({
   regular: PropTypes.bool,
   verticalSpacing: nonNegativeInteger,
 
+  normalize: PropTypes.func,
+
   // accessibility
   isFocused: PropTypes.bool, // describes actual DOM focus
 
@@ -120,6 +122,8 @@ const defaultProps = {
   small: false,
   regular: false,
   verticalSpacing: undefined,
+
+  normalize: (value) => value,
 
   // accessibility
   isFocused: false,
@@ -173,6 +177,7 @@ function DateRangePickerInput({
   small,
   regular,
   styles,
+  normalize,
 }) {
   const calendarIcon = customInputIcon || (
     <CalendarIcon {...css(styles.DateRangePickerInput_calendarIcon_svg)} />
@@ -245,6 +250,7 @@ function DateRangePickerInput({
         verticalSpacing={verticalSpacing}
         small={small}
         regular={regular}
+        normalize={normalize}
       />
 
       {children}
@@ -280,6 +286,7 @@ function DateRangePickerInput({
         verticalSpacing={verticalSpacing}
         small={small}
         regular={regular}
+        normalize={normalize}
       />
 
 

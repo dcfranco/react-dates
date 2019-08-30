@@ -45,6 +45,7 @@ const propTypes = forbidExtraProps({
   onFocus: PropTypes.func,
   onKeyDownShiftTab: PropTypes.func,
   onKeyDownTab: PropTypes.func,
+  normalize: PropTypes.func,
 
   onKeyDownArrowDown: PropTypes.func,
   onKeyDownQuestionMark: PropTypes.func,
@@ -68,11 +69,12 @@ const defaultProps = {
   small: false,
   block: false,
   regular: false,
-
+  
   onChange() {},
   onFocus() {},
   onKeyDownShiftTab() {},
   onKeyDownTab() {},
+  normalize: (value) => value,
 
   onKeyDownArrowDown() {},
   onKeyDownQuestionMark() {},
@@ -119,8 +121,8 @@ class DateInput extends React.PureComponent {
   }
 
   onChange(e) {
-    const { onChange, onKeyDownQuestionMark } = this.props;
-    const dateString = e.target.value;
+    const { onChange, onKeyDownQuestionMark, normalize } = this.props;
+    const dateString = normalize(e.target.value);
 
     // In Safari, onKeyDown does not consistently fire ahead of onChange. As a result, we need to
     // special case the `?` key so that it always triggers the appropriate callback, instead of
